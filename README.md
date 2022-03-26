@@ -9,7 +9,6 @@ The App displays a scrolling grid of movie posters, when a movie is selected a d
 This app utilizes the themoviedb.org web API core Android user interface components and fetches movie information using .
 
 ## Tech-Stack
-<img src="https://media.giphy.com/media/nMuCPHmkBhoYOU6pQs/giphy.gif" width="300" align="right" hspace="20">
 
 - Kotlin
 - Dagger 2 (For Dependency Injection)
@@ -22,9 +21,7 @@ This app utilizes the themoviedb.org web API core Android user interface compone
 - Architecture
     - Clean Architecture
     - MVVM
-
-### *How to preview the app
-
+  
 ## Architecture
 The app follows Uncle Bob's Clean Architecture with three layers, App, Data and Domain.
 This app is small so it is not necessary to have a separate module for each layer, but I've implemented the modules as an example of Clean architecture and how it works, also if in the future I develop the app further, as the app grows it maintains strict coding discipline and separation of concerns where different modules with specific responsibilities make it easier for future modification and maintenance, also it keeps the code flexible where anything can be easily changed due to loose coupling
@@ -56,8 +53,6 @@ Our Data layer can be found one step up from our Domain layer, it can access our
 - Interface Implementations (In this case the Mapper Class and the Repository) - This is where we implement the Interfaces we created in our Domain layer, these allow us to communicate between the Data and Domain layers while still keeping our Domain layer isolated. Because of the simplicity of the app the Repository Implementation does not need to do any checks for cache etc… we only have methods which directly invoke the API.
 
 
-
-
 ### Presentation/App Module
 
 The Presentation/App module is the UI and Framework layer in the application, it is our top most layer and has access to all the layers below it. It is the closest to what the user sees on the screen, it contains our activities, fragments, view models, adapters etc… it also contains our Dependency Injection implementation (Dagger) and our Data Providers Configuration (Retrofit in this case).
@@ -71,15 +66,6 @@ The Presentation/App module is the UI and Framework layer in the application, it
 - ViewState - A sealed class which defines the state of our activity/fragment, the state is delivered via LiveData
 
 - Dependency Injection Implementation & Data Providers Configuration - In our case we are using Dagger 2 for our Dependency Injection and Retrofit as our only Data Provider to fetch data from the themoviedb.org web API.
-
-
-
-
-### Data Flow
-
-The below diagram shows the data flow when loading Movies or Trailers in the current itteration of the app:
-
-<img src="https://github.com/gnovakov/PopularMovies_Kotlin/blob/master/dataFlow.jpg" width="1600" align="centre" hspace="20">
 
 
 #### Data Flow Note: 
